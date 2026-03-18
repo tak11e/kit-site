@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My Site :3</title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="desktop">
+            <a href="javascript:void(0)" class="desktop-icon" onclick="openApp()">
+                <img src="images/contact_book.png" alt="Credit app icon" class="icon-image">
+                <span class="icon-label">Credits</span>
+            </a>
+        </div>
+
+        <div id="credit-window" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    Credits
+                </div>
+                <div class="title-bar-controls">
+                    <button onclick="closeApp()">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Credit to aconfuseddragon on itch.io for all assets!</p>
+                <a href="https://aconfuseddragon.itch.io">Check them out!</a>
+            </div>
+        </div>
+
+        <div class="taskbar">
+            <button class="start-button">
+                <img src="images/start-button.png" alt="Start icon" class="start-icon"> 
+                <span>Start</span>
+            </button>
+        </div>
+    </body>
+</html>
+
+<script>
+    dragElement(document.getElementById('credit-window'));
+    function openApp() {
+        document.getElementById('credit-window').style.display = 'block';
+    }
+    function closeApp() {
+        document.getElementById('credit-window').style.display = 'none';
+    }
+    function dragElement(element) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
+
+        const titleBar = element.querySelector(".title-bar");
+
+        if (titleBar) {
+            titleBar.onmousedown = dragMouseDown;
+        } else {
+            element.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+</script>
