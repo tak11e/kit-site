@@ -1,0 +1,157 @@
+@import "https://cdn.jsdelivr.net/npm/95css@latest/css/95css.min.css";
+@font-face {
+    font-family: 'W95FA';
+    src: url('path/to/W95FA.woff2') format('woff2'),
+         url('path/to/W95FA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0089da;
+    background-image: url("../images/michaelsoft_background_1080.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    margin-bottom: 50px;
+
+    overflow: hidden;
+}
+
+p {
+    color: white;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #c2c2c2;
+    box-shadow: inset 0 1px 0 #dfdfdf;
+    z-index: 1000;
+    border-top: 2px solid #ffffff;
+    padding: 2px 4px;
+    gap: 4px;
+    font-family: 'W95FA','MS Sans Serif', 'Arial', sans-serif;
+    font-size: 17px;
+}
+
+.start-button {    
+    font-weight: bold;
+    width: 120px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    padding: 0 10px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.start-icon {
+    /* Image stuff */
+    width: 31.25px;
+    height: 25px;
+    flex-shrink: 0;
+
+    margin-bottom: 2px;
+    margin-right: 5px;
+
+    image-rendering: pixelated;
+}
+
+.desktop {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    height: calc(100vh - 40px)
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.icon-image {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    image-rendering: pixelated;
+}
+
+.icon-label {
+    font-family: 'W95FA','MS Sans Serif', 'Arial', sans-serif;
+    font-size: 17px;
+    padding: 2px;
+    border: 1px solid transparent;
+}
+
+.desktop-icon:hover .icon-label {
+    background-color: #000080;
+    border: 1px dotted #ffff00;
+}
+
+.window {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 300px;
+    z-index: 2000;
+}
+
+.title-bar {
+    background-color: #000080;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 2px 3px 3px;
+
+    cursor: default;
+    user-select: none;
+}
+
+.title-bar-text {
+    font-family: 'W95FA','MS Sans Serif', 'Arial', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.title-bar-controls {
+    display: flex;
+}
+
+.title-bar-controls button {
+    padding: 0 4px;
+    min-width: 16px;
+    height: 14px;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-body {
+    background-color: #c2c2c2;
+}
